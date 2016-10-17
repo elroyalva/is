@@ -26,5 +26,5 @@ echo 32 > frame_aggr_level
 su
 cd /sys/devices/system/cpu/cpu0/cpufreq
 echo "userspace" > scaling_governor
-echo 400000 > scaling_setspeed
+echo 1400000 > scaling_setspeed
 cat cpuinfo_cur_freq
