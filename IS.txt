@@ -1,0 +1,30 @@
+Kernel - Previous linux version
+3.6.3-030603-generic
+
+
+UBwins
+dimitrios
+
+
+sudo iw reg set US
+sudo hostapd -B hostapd.conf
+sudo ifconfig wlan1 10.0.0.100
+sudo iw wlan1 set bitrates legacy-5 ht-mcs-5 7
+
+iperf -c 10.0.0.101 -u -b 1.3M -l 1470
+
+
+-l is packet size
+
+
+Set frame_aggreg_level
+
+sudo su
+cd /sys/kernel/debug/ieee80211/phy0/ath9k/
+echo 32 > frame_aggr_level
+
+su
+cd /sys/devices/system/cpu/cpu0/cpufreq
+echo "userspace" > scaling_governor
+echo 400000 > scaling_setspeed
+cat cpuinfo_cur_freq
